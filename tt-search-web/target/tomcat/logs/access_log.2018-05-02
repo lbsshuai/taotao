@@ -1,0 +1,11 @@
+0:0:0:0:0:0:0:1 - - [02/May/2018:23:16:51 +0800] "GET /search HTTP/1.1" 404 963 http-bio-8086-exec-1 945
+0:0:0:0:0:0:0:1 - - [02/May/2018:23:16:51 +0800] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8086-exec-5 2
+0:0:0:0:0:0:0:1 - - [02/May/2018:23:17:14 +0800] "GET /search.html HTTP/1.1" 500 4104 http-bio-8086-exec-6 11643
+0:0:0:0:0:0:0:1 - - [02/May/2018:23:19:13 +0800] "GET /search.html HTTP/1.1" 500 4104 http-bio-8086-exec-9 1313
+0:0:0:0:0:0:0:1 - - [02/May/2018:23:19:26 +0800] "GET /search?keyword=1 HTTP/1.1" 404 963 http-bio-8086-exec-5 129
+0:0:0:0:0:0:0:1 - - [02/May/2018:23:19:34 +0800] "GET /search?keyword=1.html HTTP/1.1" 404 963 http-bio-8086-exec-3 170
+0:0:0:0:0:0:0:1 - - [02/May/2018:23:19:44 +0800] "GET /search.html?keyword=1 HTTP/1.1" 500 4104 http-bio-8086-exec-3 1468
+0:0:0:0:0:0:0:1 - - [02/May/2018:23:21:26 +0800] "GET /search.html?keyword=1&page=1 HTTP/1.1" 500 4104 http-bio-8086-exec-6 1399
+0:0:0:0:0:0:0:1 - - [02/May/2018:23:22:49 +0800] "GET /search.html?keyword=%E4%B8%89%E6%98%9F HTTP/1.1" 500 4104 http-bio-8086-exec-8 1168
+0:0:0:0:0:0:0:1 - - [02/May/2018:23:38:41 +0800] "GET /search.html?keyword=%E4%B8%89%E6%98%9F HTTP/1.1" 500 4104 http-bio-8086-exec-1 1507
+0:0:0:0:0:0:0:1 - - [02/May/2018:23:38:54 +0800] "GET /search.html?keyword=%E4%B8%89%E6%98%9F HTTP/1.1" 500 4104 http-bio-8086-exec-2 1263

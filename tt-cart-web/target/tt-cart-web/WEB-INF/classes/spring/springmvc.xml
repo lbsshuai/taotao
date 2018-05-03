@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+
+	<!-- 加载resource -->
+	<context:property-placeholder location="classpath:resource/source.properties"/>
+	<!-- 扫描注解 -->
+	<context:component-scan base-package="com.lbs.cart"></context:component-scan>
+
+	<!-- 处理器映射器/适配器 -->
+	<mvc:annotation-driven />
+
+	<!--视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+ 
+  <!-- 定义拦截器  start -->
+  <!-- 目的:验证用户是否登录 -->
+  <mvc:interceptors>
+  	<mvc:interceptor>
+  		<mvc:mapping path="/**"/>
+  		<bean class="com.lbs.cart.interceptor.LoginInterceptor"></bean>
+  	</mvc:interceptor>
+  </mvc:interceptors>
+  
+   <!-- 定义拦截器  end -->
+	<dubbo:application name="tt-cart-web"/>
+	<dubbo:registry protocol="zookeeper" address="123.206.95.34:2181"></dubbo:registry>
+	<dubbo:reference interface="com.lbs.cart.service.RedisCartService" id="redisCatService"></dubbo:reference>
+  	<dubbo:reference interface="com.lbs.service.ItemService" id="itemService"></dubbo:reference>
+  	<dubbo:reference interface="com.lbs.service.TokenService" id="tokenService"></dubbo:reference>
+  
+ 
+	
+
+		<!-- 资源映射 -->
+	<!-- <mvc:resources location="/WEB-INF/css/" mapping="/css/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"></mvc:resources>
+	 -->
+	
+</beans>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
